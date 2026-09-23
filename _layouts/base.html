@@ -1,0 +1,61 @@
+{%- assign lang = page.lang | default: "he" -%}
+{%- if lang == "he" -%}{%- assign dir = "rtl" -%}{%- assign locale = "he_IL" -%}{%- else -%}{%- assign dir = "ltr" -%}{%- assign locale = "en_US" -%}{%- endif -%}
+{%- assign t = site.data.ui[lang] -%}
+{%- assign everything = site.pages | concat: site.articles -%}
+{%- assign other = nil -%}
+{%- if page.ref -%}
+  {%- for p in everything -%}
+    {%- if p.ref == page.ref and p.lang != lang -%}{%- assign other = p -%}{%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- if lang == "he" -%}{%- assign home_url = "/" -%}{%- else -%}{%- assign home_url = "/en/" -%}{%- endif -%}
+<!doctype html>
+<html lang="{{ lang }}" dir="{{ dir }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  {%- if site.noindex %}
+  <meta name="robots" content="noindex">
+  {%- endif %}
+  <title>{% if page.title and page.layout != "home" %}{{ page.title }} | {% endif %}{{ t.name }}</title>
+  {%- if page.description %}
+  <meta name="description" content="{{ page.description | escape }}">
+  {%- endif %}
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  {%- if other %}
+  <link rel="alternate" hreflang="{{ other.lang }}" href="{{ other.url | absolute_url }}">
+  {%- endif %}
+  <meta property="og:type" content="{% if page.layout == 'article' %}article{% else %}website{% endif %}">
+  <meta property="og:site_name" content="{{ t.name }}">
+  <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+  {%- if page.description %}
+  <meta property="og:description" content="{{ page.description | escape }}">
+  {%- endif %}
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:locale" content="{{ locale }}">
+  {%- if page.image %}
+  <meta property="og:image" content="{{ page.image | absolute_url }}">
+  {%- endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-name" href="{{ home_url }}">{{ t.name }}</a>
+    {%- if other %}
+    <a class="lang-switch" href="{{ other.url | relative_url }}" lang="{{ other.lang }}" hreflang="{{ other.lang }}">{{ t.other_lang_name }}</a>
+    {%- endif %}
+  </header>
+
+  <main>
+{{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <p>{{ t.contact }}: <a href="mailto:{{ site.email }}" dir="ltr">{{ site.email }}</a></p>
+  </footer>
+</body>
+</html>

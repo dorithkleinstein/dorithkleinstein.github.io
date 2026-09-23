@@ -1,0 +1,35 @@
+---
+layout: base
+---
+{%- assign lang = page.lang | default: "he" -%}
+{%- assign t = site.data.ui[lang] -%}
+{%- assign pieces = site.articles | where: "lang", lang | sort: "date" | reverse -%}
+<div class="home">
+{{ content }}
+
+  {%- if pieces.size > 0 %}
+  <section class="pieces">
+    <h2>{{ t.articles }}</h2>
+    <ul>
+      {%- for piece in pieces %}
+      <li>
+        <a href="{{ piece.url | relative_url }}">{{ piece.title }}</a>
+        {%- if piece.date %}<span class="meta">{% include date.html date=piece.date lang=lang %}</span>{% endif %}
+        {%- if piece.description %}<p>{{ piece.description }}</p>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+
+  <section class="out-links">
+    <h2>{{ t.links }}</h2>
+    {%- if t.links_note != "" %}
+    <p class="note">{{ t.links_note }}</p>
+    {%- endif %}
+    <ul>
+      <li><a href="{{ site.looker_url }}" hreflang="en">{{ t.looker }}</a></li>
+      <li><a href="{{ site.github_url }}" hreflang="en">{{ t.github }}</a></li>
+    </ul>
+  </section>
+</div>

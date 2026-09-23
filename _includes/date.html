@@ -1,0 +1,4 @@
+{%- comment -%} Writes a date as "23 September 2026" or "23 בספטמבר 2026". {%- endcomment -%}
+{%- assign t = site.data.ui[include.lang] -%}
+{%- assign m = include.date | date: "%-m" | minus: 1 -%}
+<time datetime="{{ include.date | date: '%Y-%m-%d' }}">{{ include.date | date: "%-d" }} {% if include.lang == "he" %}ב{% endif %}{{ t.months[m] }} {{ include.date | date: "%Y" }}</time>

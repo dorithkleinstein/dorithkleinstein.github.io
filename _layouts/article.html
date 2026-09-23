@@ -1,0 +1,17 @@
+---
+layout: base
+---
+{%- assign lang = page.lang | default: "he" -%}
+<article class="article">
+  <header>
+    <h1>{{ page.title }}</h1>
+    {%- if page.subtitle %}
+    <p class="subtitle">{{ page.subtitle }}</p>
+    {%- endif %}
+    {%- if page.date %}
+    <p class="meta">{% include date.html date=page.date lang=lang %}</p>
+    {%- endif %}
+  </header>
+
+{{ content }}
+</article>

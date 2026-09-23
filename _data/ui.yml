@@ -1,0 +1,26 @@
+# The small fixed words the templates use, in each language.
+# PLACEHOLDER: the wording here is not approved yet.
+
+he:
+  name: דורית קליינשטיין   # PLACEHOLDER: check the spelling
+  other_lang_name: English
+  home: דף הבית
+  articles: מאמרים
+  links: קישורים
+  links_note: הדוח והקוד באנגלית.
+  looker: הדוח ב-Looker Studio
+  github: הקוד ב-GitHub
+  contact: יצירת קשר
+  months: [ינואר, פברואר, מרץ, אפריל, מאי, יוני, יולי, אוגוסט, ספטמבר, אוקטובר, נובמבר, דצמבר]
+
+en:
+  name: Dorith Kleinstein
+  other_lang_name: עברית
+  home: Home
+  articles: Articles
+  links: Links
+  links_note: ""
+  looker: The report in Looker Studio
+  github: The code on GitHub
+  contact: Contact
+  months: [January, February, March, April, May, June, July, August, September, October, November, December]

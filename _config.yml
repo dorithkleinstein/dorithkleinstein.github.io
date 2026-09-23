@@ -1,0 +1,40 @@
+# Site settings. GitHub Pages reads this file when it builds the site.
+# After changing it, commit and push; the site rebuilds in a minute or two.
+
+title: Dorith Kleinstein
+url: "https://dorithkleinstein.com"
+email: dorithkleinstein@gmail.com
+
+# Outside links. These stay in English.
+looker_url: "https://datastudio.google.com/reporting/67893ee7-9da4-4c9b-ab32-6f7903caed08"
+github_url: "https://github.com/dorithkleinstein/us-birth-outcomes-2016-2024"
+
+# While true, every page asks search engines not to list it.
+# Set to false when the real text is in.
+noindex: true
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Articles are kept in _articles/he and _articles/en.
+collections:
+  articles:
+    output: true
+
+defaults:
+  - scope:
+      path: "_articles/he"
+    values:
+      layout: article
+      lang: he
+      permalink: /articles/:name/
+  - scope:
+      path: "_articles/en"
+    values:
+      layout: article
+      lang: en
+      permalink: /en/articles/:name/
+
+exclude:
+  - README.md

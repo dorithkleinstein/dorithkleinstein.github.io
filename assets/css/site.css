@@ -1,0 +1,126 @@
+/* Colours taken from the GitHub social card. Light only, on purpose. */
+:root {
+  color-scheme: light;
+  --bg: #f7fafa;          /* card background */
+  --text: #1f2f34;        /* body text, a very dark teal */
+  --heading: #2c4a54;     /* card title colour */
+  --accent: #3b6470;      /* links; darker than the card's #64858d so it reads */
+  --muted: #56757d;       /* dates, notes */
+  --rule: #d6e2e4;        /* thin lines */
+  --measure: 38rem;       /* reading width */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0 auto;
+  max-width: calc(var(--measure) + 2rem);
+  padding: 0 1rem 3rem;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+}
+
+html[lang="he"] body {
+  font-family: "Assistant", "Arial Hebrew", Arial, sans-serif;
+  font-size: 1.1875rem;   /* Hebrew letters sit smaller; nudge it up */
+  line-height: 1.8;
+}
+
+/* Top bar: name at the start, the other-language link at the end */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.25rem 0 1rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 2rem;
+}
+.site-name {
+  font-weight: 700;
+  color: var(--heading);
+  text-decoration: none;
+}
+.lang-switch {
+  color: var(--accent);
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;   /* bigger target for a thumb */
+}
+.lang-switch[lang="he"] { font-family: "Assistant", "Arial Hebrew", Arial, sans-serif; }
+.lang-switch[lang="en"] { font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif; }
+
+h1, h2, h3 {
+  color: var(--heading);
+  line-height: 1.25;
+  font-weight: 700;
+}
+h1 { font-size: 2rem; margin: 0 0 0.5rem; }
+h2 { font-size: 1.375rem; margin: 2.5rem 0 0.75rem; }
+h3 { font-size: 1.125rem; margin: 2rem 0 0.5rem; }
+
+p, ul, ol { margin: 0 0 1.1rem; }
+ul, ol { padding-inline-start: 1.4rem; }
+li { margin-bottom: 0.4rem; }
+
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:hover { color: var(--heading); }
+
+img { max-width: 100%; height: auto; }
+
+blockquote {
+  margin: 1.5rem 0;
+  padding-inline-start: 1rem;
+  border-inline-start: 3px solid var(--rule);
+  color: var(--heading);
+}
+
+/* Code and tables stay left to right even on Hebrew pages */
+pre, code { direction: ltr; unicode-bidi: isolate; }
+pre {
+  overflow-x: auto;
+  padding: 0.75rem 1rem;
+  background: #eef4f5;
+  font-size: 0.9rem;
+  text-align: left;
+}
+table { border-collapse: collapse; display: block; overflow-x: auto; margin-bottom: 1.1rem; }
+th, td { border-bottom: 1px solid var(--rule); padding: 0.4rem 0.75rem; text-align: start; }
+
+.meta, .note, .subtitle { color: var(--muted); }
+.meta { font-size: 0.95rem; margin: 0; }
+.subtitle { font-size: 1.2rem; margin: 0 0 0.5rem; }
+
+.article > header { margin-bottom: 2rem; }
+
+.pieces ul, .out-links ul { list-style: none; padding: 0; }
+.pieces li { margin-bottom: 1.25rem; }
+.pieces li > a { font-weight: 600; }
+.pieces .meta { display: block; }
+.pieces li p { margin: 0.25rem 0 0; }
+
+.site-footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.placeholder {
+  background: #fff6d6;
+  padding: 0 0.2em;
+}
+
+@media (max-width: 30rem) {
+  body { font-size: 1.0625rem; }
+  html[lang="he"] body { font-size: 1.125rem; }
+  h1 { font-size: 1.65rem; }
+}
