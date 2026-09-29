@@ -9,10 +9,14 @@ email: dorithkleinstein@gmail.com
 looker_url: "https://datastudio.google.com/reporting/67893ee7-9da4-4c9b-ab32-6f7903caed08"
 github_url: "https://github.com/dorithkleinstein/us-birth-outcomes-2016-2024"
 
-# The picture shown when a page is shared on Facebook, WhatsApp or LinkedIn.
-# A page can use its own with an `image:` line at the top of its file.
-share_image: /assets/images/social-card-1200x630.png
-share_image_alt: "The build and the data. 55 CDC WONDER pulls. 10 dbt models. Nine years, every state."
+# The picture shown when a page is shared on Facebook, WhatsApp or LinkedIn, by language.
+# Made from share-cards/card.html. A page can use its own with an `image:` line at the top of its file.
+share_image:
+  he: /assets/images/card-he.png
+  en: /assets/images/card-en.png
+share_image_alt:
+  he: "דורית קלינשטיין, Fractional Senior Analyst"
+  en: "Dorith Kleinstein, Fractional Senior Analyst"
 
 # While true, every page asks search engines not to list it.
 # Set to false when the real text is in.
@@ -46,3 +50,4 @@ defaults:
 
 exclude:
   - README.md
+  - share-cards/

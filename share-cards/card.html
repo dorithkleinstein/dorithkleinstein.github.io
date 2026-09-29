@@ -1,0 +1,68 @@
+<!doctype html>
+<!--
+  Share card template for dorithkleinstein.com. 1200 by 630 pixels.
+  Open with ?lang=he or ?lang=en. The words for each card are in CARDS below.
+  To make the PNGs, see README.md in this folder.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@600;700&family=Source+Sans+3:wght@600;700&display=block">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: #f7fafa url("lines.svg") no-repeat;
+  }
+  /* The text sits inside the central 1000 by 500 */
+  .text {
+    position: absolute;
+    left: 100px;
+    top: 65px;
+    width: 1000px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .name {
+    margin: 0;
+    color: #2c4a54;
+    font-size: 104px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .line {
+    margin: 28px 0 0;
+    color: #37545d;
+    font-size: 54px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  [lang="he"] .text { font-family: "Assistant", sans-serif; text-align: right; }
+  [lang="en"] .text { font-family: "Source Sans 3", sans-serif; text-align: left; }
+</style>
+</head>
+<body>
+<div class="text">
+  <p class="name"><span id="name"></span></p>
+  <p class="line"><span id="line" dir="ltr"></span></p>
+</div>
+<script>
+  var CARDS = {
+    he: { name: 'דורית קלינשטיין', line: 'Fractional Senior Analyst', dir: 'rtl' },
+    en: { name: 'Dorith Kleinstein', line: 'Fractional Senior Analyst', dir: 'ltr' }
+  };
+  var lang = new URLSearchParams(location.search).get('lang') || 'he';
+  var card = CARDS[lang];
+  document.documentElement.lang = card.dir === 'rtl' ? 'he' : 'en';
+  document.documentElement.dir = card.dir;
+  document.getElementById('name').textContent = card.name;
+  document.getElementById('line').textContent = card.line;
+</script>
+</body>
+</html>

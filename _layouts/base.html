@@ -37,11 +37,11 @@
   {%- if other %}
   <meta property="og:locale:alternate" content="{% if other.lang == 'he' %}he_IL{% else %}en_US{% endif %}">
   {%- endif %}
-  {%- assign share_image = page.image | default: site.share_image %}
+  {%- assign share_image = page.image | default: site.share_image[lang] %}
   <meta property="og:image" content="{{ share_image | absolute_url }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="{{ site.share_image_alt | escape }}">
+  <meta property="og:image:alt" content="{{ site.share_image_alt[lang] | escape }}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
