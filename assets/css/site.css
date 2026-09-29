@@ -103,6 +103,14 @@ th, td { border-bottom: 1px solid var(--rule); padding: 0.4rem 0.6rem; text-alig
 
 .article > header { margin-bottom: 2rem; }
 
+/* A closing note at the end of a piece, such as a source or an attribution */
+.closing-note {
+  margin-top: 2rem;
+  color: var(--muted);
+  font-size: 1rem;
+  font-style: italic;
+}
+
 .out-links ul { list-style: none; padding: 0; }
 
 /* The site map: every page, one panel, the current page filled in */
