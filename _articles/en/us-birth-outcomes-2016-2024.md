@@ -98,5 +98,3 @@ Those are the things a dataset this large is actually good at showing: not movem
 The full interactive version, filterable by state, region, race and education, is at [US Birth Outcomes 2016-2024](https://datastudio.google.com/reporting/67893ee7-9da4-4c9b-ab32-6f7903caed08).
 
 Built with CDC WONDER natality data, dbt, BigQuery and Looker Studio.
-
-*First published on* [*LinkedIn*](https://www.linkedin.com/pulse/averages-moved-structure-did-dorith-kleinstein-zjamf) *on 1 September 2026 and corrected on 10 September 2026.*
