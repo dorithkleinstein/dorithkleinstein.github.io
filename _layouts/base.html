@@ -54,6 +54,8 @@
 {{ content }}
   </main>
 
+  {% include site-map.html %}
+
   <footer class="site-footer">
     <p>{{ t.contact }}: <a href="mailto:{{ site.email }}" dir="ltr">{{ site.email }}</a></p>
   </footer>
@@ -65,6 +67,29 @@
         a.rel = 'noopener';
       }
     });
+
+    // The i hints in the site map: only one open at a time, and an open one closes
+    // when the reader clicks elsewhere, presses Esc, scrolls it away, or leaves the page.
+    var hints = document.querySelectorAll('.hint');
+    function closeHints(except) {
+      hints.forEach(function (h) { if (h !== except) h.open = false; });
+    }
+    hints.forEach(function (h) {
+      h.addEventListener('toggle', function () { if (h.open) closeHints(h); });
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.hint')) closeHints();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeHints();
+    });
+    if ('IntersectionObserver' in window) {
+      var watcher = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (!en.isIntersecting) en.target.open = false; });
+      });
+      hints.forEach(function (h) { watcher.observe(h); });
+    }
+    window.addEventListener('pageshow', function () { closeHints(); });
   </script>
 </body>
 </html>

@@ -1,0 +1,34 @@
+{%- comment -%}
+  The map of the site, in the page's language: home first, then the articles in their set order.
+  The page being read is marked and is not a link.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: "he" -%}
+{%- assign t = site.data.ui[lang] -%}
+{%- assign pieces = site.articles | where: "lang", lang | sort: "order" -%}
+{%- if lang == "he" -%}{%- assign home_url = "/" -%}{%- else -%}{%- assign home_url = "/en/" -%}{%- endif -%}
+<nav class="site-map" aria-label="{{ t.map }}">
+  <ul>
+    <li>
+      {%- if page.url == home_url %}
+      <span class="map-link current" aria-current="page">{{ t.home }}</span>
+      {%- else %}
+      <a class="map-link" href="{{ home_url }}">{{ t.home }}</a>
+      {%- endif %}
+    </li>
+    {%- for piece in pieces %}
+    <li>
+      {%- if piece.url == page.url %}
+      <span class="map-link current" aria-current="page">{{ piece.title }}</span>
+      {%- else %}
+      <a class="map-link" href="{{ piece.url | relative_url }}" title="{{ piece.description | escape }}">{{ piece.title }}</a>
+      {%- endif %}
+      {%- if piece.description %}
+      <details class="hint">
+        <summary aria-label="{{ t.about_page }}">i</summary>
+        <p>{{ piece.description }}</p>
+      </details>
+      {%- endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+</nav>

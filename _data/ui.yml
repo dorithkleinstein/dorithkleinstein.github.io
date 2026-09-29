@@ -8,10 +8,12 @@ he:
   articles: מאמרים
   links: קישורים
   links_note: הדוח והקוד באנגלית.
+  links_note_code: הקוד באנגלית.   # new, not approved yet
+  map: מפת האתר   # read aloud by screen readers only
+  about_page: על הדף   # read aloud by screen readers only
   looker: הדוח ב-Looker Studio
   github: הקוד ב-GitHub
   contact: יצירת קשר
-  months: [ינואר, פברואר, מרץ, אפריל, מאי, יוני, יולי, אוגוסט, ספטמבר, אוקטובר, נובמבר, דצמבר]
 
 en:
   name: Dorith Kleinstein
@@ -20,7 +22,9 @@ en:
   articles: Articles
   links: Links
   links_note: ""
+  links_note_code: ""
+  map: Site map
+  about_page: About this page
   looker: The report in Looker Studio
   github: The code on GitHub
   contact: Contact
-  months: [January, February, March, April, May, June, July, August, September, October, November, December]

@@ -7,6 +7,8 @@
   --accent: #3b6470;      /* links; darker than the card's #64858d so it reads */
   --muted: #56757d;       /* dates, notes */
   --rule: #d6e2e4;        /* thin lines */
+  --panel: #d3e2e5;       /* site map background */
+  --frame: #88a1a6;       /* site map frames; a line colour from the card */
   --measure: 38rem;       /* reading width */
 }
 
@@ -82,7 +84,7 @@ blockquote {
   color: var(--heading);
 }
 
-/* Code and tables stay left to right even on Hebrew pages */
+/* Code stays left to right even on Hebrew pages. Wide tables scroll sideways on phones. */
 pre, code { direction: ltr; unicode-bidi: isolate; }
 pre {
   overflow-x: auto;
@@ -92,7 +94,8 @@ pre {
   text-align: left;
 }
 table { border-collapse: collapse; display: block; overflow-x: auto; margin-bottom: 1.1rem; }
-th, td { border-bottom: 1px solid var(--rule); padding: 0.4rem 0.75rem; text-align: start; }
+table { font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+th, td { border-bottom: 1px solid var(--rule); padding: 0.4rem 0.6rem; text-align: start; white-space: nowrap; }
 
 .meta, .note, .subtitle { color: var(--muted); }
 .meta { font-size: 0.95rem; margin: 0; }
@@ -100,11 +103,89 @@ th, td { border-bottom: 1px solid var(--rule); padding: 0.4rem 0.75rem; text-ali
 
 .article > header { margin-bottom: 2rem; }
 
-.pieces ul, .out-links ul { list-style: none; padding: 0; }
-.pieces li { margin-bottom: 1.25rem; }
-.pieces li > a { font-weight: 600; }
-.pieces .meta { display: block; }
-.pieces li p { margin: 0.25rem 0 0; }
+.out-links ul { list-style: none; padding: 0; }
+
+/* The site map: every page, one panel, the current page filled in */
+.site-map {
+  margin-top: 3rem;
+  padding: 1rem;
+  background: var(--panel);
+  border: 1px solid var(--frame);
+  border-radius: 8px;
+}
+.site-map ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.site-map li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+.map-link {
+  flex: 1;
+  display: block;
+  padding: 0.55rem 0.9rem;
+  background: var(--bg);
+  border: 1px solid var(--frame);
+  border-radius: 6px;
+  color: var(--heading);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: none;
+}
+a.map-link:hover { background: #ffffff; border-color: var(--accent); }
+.map-link.current {
+  background: var(--heading);
+  border-color: var(--heading);
+  color: #ffffff;
+}
+
+/* The small i beside each title; its line opens in a small box */
+.hint summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--accent);
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  cursor: pointer;
+}
+.hint summary::-webkit-details-marker { display: none; }
+.hint[open] summary { background: var(--accent); color: #ffffff; }
+.hint p {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  inset-inline: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  background: #ffffff;
+  border: 1.5px solid var(--accent);
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(31, 47, 52, 0.18);
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.out-links {
+  margin-top: 2.5rem;
+}
 
 .site-footer {
   margin-top: 3rem;
@@ -114,13 +195,10 @@ th, td { border-bottom: 1px solid var(--rule); padding: 0.4rem 0.75rem; text-ali
   font-size: 1rem;
 }
 
-.placeholder {
-  background: #fff6d6;
-  padding: 0 0.2em;
-}
-
 @media (max-width: 30rem) {
   body { font-size: 1.0625rem; }
   html[lang="he"] body { font-size: 1.125rem; }
   h1 { font-size: 1.65rem; }
+  table { font-size: 0.85rem; }
+  th, td { padding: 0.35rem 0.4rem; }
 }

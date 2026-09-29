@@ -16,6 +16,9 @@ noindex: true
 markdown: kramdown
 kramdown:
   input: GFM
+  # Keep quote marks exactly as typed (ארה"ב must not become curly).
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+  typographic_symbols: {}
 
 # Articles are kept in _articles/he and _articles/en.
 collections:
