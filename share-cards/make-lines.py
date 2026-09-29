@@ -5,13 +5,15 @@ The average for each state and year is weighted by births. States far from the m
 darker, the rest fainter, so the lines stay quiet behind the text.
 
 Run with: python3 make-lines.py
-Writes lines.svg next to this file.
+Writes lines.svg (1200 by 630, for the share cards) next to this file.
+For another size: python3 make-lines.py 1640 624 cover-lines.svg
 """
-import csv, os
+import csv, os, sys
 from collections import defaultdict
 
 SEED = os.path.expanduser('~/dbt_projects/birth_outcomes/seeds/births_by_state_race_year.csv')
-W, H = 1200, 630
+W, H = (int(sys.argv[1]), int(sys.argv[2])) if len(sys.argv) > 2 else (1200, 630)
+OUT = sys.argv[3] if len(sys.argv) > 3 else 'lines.svg'
 PAD_Y = -40          # let the outermost lines run off the top and bottom, as on the GitHub card
 
 total = defaultdict(float); births = defaultdict(float)
@@ -46,5 +48,5 @@ for s in states:
 svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">\n'
        f'<g fill="none" stroke="#64858d" stroke-width="2" stroke-linejoin="round">\n'
        + '\n'.join(lines) + '\n</g>\n</svg>\n')
-open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lines.svg'), 'w').write(svg)
-print(f'{len(lines)} states, {years[0]} to {years[-1]}, {lo:.0f} to {hi:.0f} grams')
+open(os.path.join(os.path.dirname(os.path.abspath(__file__)), OUT), 'w').write(svg)
+print(f'{OUT}: {W} by {H}, {len(lines)} states, {years[0]} to {years[-1]}, {lo:.0f} to {hi:.0f} grams')

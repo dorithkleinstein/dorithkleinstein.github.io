@@ -17,3 +17,11 @@ Change `he` to `en` for the English card. If Chrome does not return after the fi
 ## A new card
 
 Add a line to `CARDS` in `card.html`, for example `answers_he: { name: '...', line: '...', dir: 'rtl' }`, and make it with `?lang=answers_he`.
+
+## Facebook cover
+
+`facebook-cover.png` is the Page cover, 1640 by 624, the lines with no text. It is made from `cover.html`, whose lines are `cover-lines.svg`, drawn at that size by:
+
+    python3 make-lines.py 1640 624 cover-lines.svg
+
+and turned into the PNG with the same Chrome line as the cards, with `--window-size=1640,624`, `--screenshot=facebook-cover.png` and `cover.html` at the end.
