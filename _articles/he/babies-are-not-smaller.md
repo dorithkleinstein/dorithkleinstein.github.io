@@ -1,6 +1,6 @@
 ---
 ref: babies-are-not-smaller
-order: 3
+order: 4
 title: 'התינוקות לא קטנים יותר. הם נולדים מוקדם יותר.'
 github: true
 description: 'בכל שבוע הריון, מ-36 עד 41, תינוק שוקל ב-2024 כמעט בדיוק מה ששקל ב-2016.'

@@ -1,6 +1,6 @@
 ---
 ref: us-birth-outcomes-2016-2024
-order: 2
+order: 3
 title: 'הממוצעים זזו. המבנה נשאר.'
 looker: true
 github: true

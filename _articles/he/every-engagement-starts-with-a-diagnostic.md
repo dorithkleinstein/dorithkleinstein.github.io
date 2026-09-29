@@ -1,6 +1,6 @@
 ---
 ref: every-engagement-starts-with-a-diagnostic
-order: 1
+order: 2
 title: 'כל עבודה מתחילה בסקר'
 description: 'אני עוזרת לחברות קטנות, ולצוותים קטנים ועצמאיים בתוך חברות גדולות, להבין את הנתונים שלהם.'
 ---
