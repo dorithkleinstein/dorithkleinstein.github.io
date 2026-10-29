@@ -25,3 +25,9 @@ Add a line to `CARDS` in `card.html`, for example `answers_he: { name: '...', li
     python3 make-lines.py 1640 624 cover-lines.svg
 
 and turned into the PNG with the same Chrome line as the cards, with `--window-size=1640,624`, `--screenshot=facebook-cover.png` and `cover.html` at the end.
+
+## Site icon (favicon)
+
+Version A, white DK on the dark teal, chosen 29 October 2026. `favicon.html` draws it at 512 by 512 (`?v=a`; `?v=b` is the light version that was not chosen), rendered with the same Chrome line at `--window-size=512,512` plus `--default-background-color=00000000` for clear corners, saved as `favicon-a-512.png`.
+
+From that file come the four the site uses: `/favicon.ico` (16, 32, 48), `/assets/images/favicon-32.png`, `/assets/images/favicon-192.png`, and `/apple-touch-icon.png` (180, a full square, because iPhones round the corners themselves).

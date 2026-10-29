@@ -1,0 +1,39 @@
+<!doctype html>
+<!--
+  Site icon (favicon) for dorithkleinstein.com, drawn at 512 by 512 and scaled down.
+  ?v=a  white DK on the dark teal
+  ?v=b  dark teal DK on the light background, with a teal frame
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@700;800&display=block">
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  .icon {
+    width: 512px;
+    height: 512px;
+    box-sizing: border-box;
+    border-radius: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 800;
+    font-size: 300px;
+    letter-spacing: -14px;
+    line-height: 1;
+    padding-bottom: 22px;   /* optical centring: capitals sit high */
+  }
+  .a { background: #2c4a54; color: #ffffff; }
+  .b { background: #f7fafa; color: #2c4a54; border: 36px solid #3b6470; font-size: 260px; }
+</style>
+</head>
+<body>
+<div class="icon" id="icon">DK</div>
+<script>
+  var v = new URLSearchParams(location.search).get('v') || 'a';
+  document.getElementById('icon').className = 'icon ' + v;
+</script>
+</body>
+</html>
