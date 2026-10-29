@@ -1,6 +1,6 @@
 ---
 ref: the-measuring-stick
-order: 5
+order: 6
 title: 'The measuring stick'
 description: 'Why would anyone start with a model they already know is too simple?'
 ---

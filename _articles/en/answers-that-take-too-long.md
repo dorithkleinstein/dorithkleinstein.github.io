@@ -1,6 +1,6 @@
 ---
 ref: answers-that-take-too-long
-order: 4
+order: 5
 title: 'Which answers that should be easy to get always take too long?'
 subtitle: 'Even a small business can work better with the data it already keeps, and often for less than it spends keeping it in line.'
 description: 'Even a small business can work better with the data it already keeps, and often for less than it spends keeping it in line.'
