@@ -1,6 +1,6 @@
 ---
 ref: the-measuring-stick
-order: 6
+order: 7
 title: 'הרף'
 description: 'למה להתחיל ממודל שכבר ברור שהוא פשוט מדי?'
 ---

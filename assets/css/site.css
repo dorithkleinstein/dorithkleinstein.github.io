@@ -96,6 +96,8 @@ pre {
 table { border-collapse: collapse; display: block; overflow-x: auto; margin-bottom: 1.1rem; }
 table { font-size: 0.95rem; font-variant-numeric: tabular-nums; }
 th, td { border-bottom: 1px solid var(--rule); padding: 0.4rem 0.6rem; text-align: start; white-space: nowrap; }
+/* Column headings may wrap so a table fits the reading column; numbers and row names stay on one line. */
+th { white-space: normal; vertical-align: bottom; min-width: 4.5rem; }
 
 .meta, .note, .subtitle { color: var(--muted); }
 .meta { font-size: 0.95rem; margin: 0; }
